@@ -1,0 +1,143 @@
+
+function AJAX_POST( filename, toBeSended ) 			// establish ajax connection and get the content of json file
+{
+	var ret_data;
+	
+	$.ajax
+	({
+			url: filename,						// url of file
+			type: "POST",						// post method
+			data: toBeSended,					// sended data
+			dataType: "json",					// type will be json
+			async: false,						// wait for file to be ready
+		
+			success: function( data )
+			{
+				ret_data = data;				// returning data
+			}
+	});
+	
+ 	return ret_data;
+}
+
+
+$(document).ready(function() 
+{
+	$( "#accordion" ).accordion();
+
+	$('#button_login').click(function() 
+	{
+		var username = $("#username").val();   
+		var password = $("#password").val();  
+		if( username == '' || password == '' )
+		{
+			alert( 'Fields cannot be empty' )
+		}
+		
+		else
+		{
+			var toBeSended = { 'username' : username, 'password' : password };
+			data = AJAX_POST( 'loginCheck.php', toBeSended );
+			console.log(data);
+			
+			if( data['result'] == 'T' )
+			{
+				var url = "bookList.php";  
+				window.location.href = url;		
+			}
+
+			else
+			{
+				var url = "index.php";  
+				window.location.href = url;	
+			}
+		}
+
+	});
+
+
+	$('#button_logout').click(function() 
+	{
+		var toBeSended = {};
+		data = AJAX_POST( 'logout.php', toBeSended );
+
+		var url = "index.php";  
+		window.location.href = url;	
+
+	});
+
+	
+	$('#button_search').click(function() 
+	{
+		var url = "search.php";  
+		window.location.href = url;
+	});
+
+
+	$('#button_return_main_page').click(function() 
+	{
+		var url = "index.php";  
+		window.location.href = url;
+	});
+
+
+	$('.return').click(function() 
+	{
+		alert( 'Book will be returned' );
+		var temp = $(this).attr('id');
+
+		temp = temp.split('_');
+		console.log(temp);
+		var isbn = temp[0];
+		var issueDate = temp[1] + ' ' + temp[2];
+		
+		var row = $(this).parent().parent();
+		$(row).remove();
+
+		var table = $('.CSSTableGenerator').parent();
+
+		
+		var toBeSended = { 'isbn' : isbn, 'issueDate' : issueDate };
+		data = AJAX_POST( 'returnBook.php', toBeSended );
+
+
+		var url = "bookList.php";  
+		window.location.href = url;
+		
+	});
+
+
+	$('.borrow').click(function() 
+	{
+		alert( 'Book will be borrowed' );
+		var isbn = $(this).attr('id');
+		
+		var row = $(this).parent().parent();
+		var table = $('.CSSTableGenerator').parent();	
+
+		
+		var toBeSended = { 'isbn' : isbn };
+		data = AJAX_POST( 'borrowBook.php', toBeSended );
+
+
+		var url = "bookList.php";  
+		window.location.href = url;
+		
+	});
+
+
+
+	 $("#login-button").click(function(event){
+			 event.preventDefault();
+		 
+		 $('form').fadeOut(500);
+		 $('.wrapper').addClass('form-success');
+	});
+
+
+
+});
+
+
+
+//e1818897@ceng.metu.edu.tr
