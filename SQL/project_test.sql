@@ -1,0 +1,21 @@
+--insert INTO Employee(employeeID, passwd, employeeType ) values(100, '100', 'doctor' );
+--insert INTO Employee(employeeID, passwd, employeeType ) values(101, '101', 'doctor' );
+--insert INTO Employee(employeeID, passwd, employeeType ) values(102, '102', 'doctor' );
+--insert INTO Employee(employeeID, passwd, employeeType ) values(200, '200', 'secretary' );
+--insert INTO Employee(employeeID, passwd, employeeType ) values(300, '300', 'staff' );
+--insert INTO Employee(employeeID, passwd, employeeType ) values(301, '301', 'staff' );
+--insert INTO Employee(employeeID, passwd, employeeType ) values(1, 'admin', 'admin' );
+
+--insert INTO Doctor(doctorID, employeeID, passwd, dname, dsurname, phone, qualification, salary ) values(100, 100, '100', 'Mustafa', 'Akilli', '05056425354', 'brain', 10000 );
+--insert INTO Doctor(doctorID, employeeID, passwd, dname, dsurname, phone, qualification, salary ) values(101, 101, '101', 'Burak', 'Goynuk', '5363131126', 'hearth', 9000 );
+--insert INTO Doctor(doctorID, employeeID, passwd, dname, dsurname, phone, qualification, salary ) values(102, 102, '102', 'Gokce', 'Kas', '05057824554', 'dentist', 8000 );
+--insert INTO Secretary(secretaryID, employeeID, passwd, sname, ssurname, phone, salary ) values(200, 200, '200', 'Mahmut', 'Genc', '05310108084', 2000 );
+--insert INTO Staff(staffID, employeeID, passwd, sname, ssurname, phone, salary ) values(300, 300, '300', 'Ugur', 'Kas', '905079593394', 1500 );
+--insert INTO Staff(staffID, employeeID, passwd, sname, ssurname, phone, salary ) values(301, 301, '301', 'Can', 'Carlak', '905556501238', 1500 );
+--insert INTO Patient(SSN, pname, psurname, phone, address ) values('1234567890123', 'Arda', 'Bilen', '05554204641', 'Kecioren' );
+--insert INTO Patient(SSN, pname, psurname, phone, address ) values('2345678901234', 'Enes', 'Unal', '05554204541', 'Ankara' );
+--insert INTO Room(roomID, rname, numberOfPatient ) values(1, 'BZ101', 1 );
+--insert INTO Record( SSN, doctorID, status, roomID ) values( '1234567890123', 100, 'In threatment', 1 );
+--insert INTO ResponsibleFor(roomID, staffID ) values(1, 300 );
+--insert INTO StaysIn(SSN, roomID ) values('1234567890123', 1 );
+commit;
