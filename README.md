@@ -8,3 +8,7 @@ Doctors can change patients' status and their treatment, if the patient should b
 Staffs can see the rooms they responsible for.
 
 Note that because of Oracle issues, system is not working now.
+
+Contributors:
+- Burak Goynuk
+- Mustafa Akilli
