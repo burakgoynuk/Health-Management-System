@@ -7,4 +7,4 @@ Secretaries can confirm their complaints, and assign doctor to them according to
 Doctors can change patients' status and their treatment, if the patient should be treated in bed, underlying operations are done and patient is assigned to most empty room.
 Staffs can see the rooms they responsible for.
 
-
+Note that because of Oracle issues, system is not working now.
